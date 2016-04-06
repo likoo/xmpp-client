@@ -280,8 +280,8 @@ func (c *Conn) SendPresence(to, typ, id string) error {
 	return err
 }
 
-func (c *Conn) SignalPresence(state string) error {
-	_, err := fmt.Fprintf(c.out, "<presence><show>%s</show></presence>", xmlEscape(state))
+func (c *Conn) SignalPresence(state string, priority int) error {
+	_, err := fmt.Fprintf(c.out, "<presence><show>%s</show><priority>%d</priority></presence>", xmlEscape(state), priority)
 	return err
 }
 
@@ -634,7 +634,7 @@ func Dial(address, user, domain, password string, config *Config) (c *Conn, err 
 	}
 
 	// Send IQ message asking to bind to the local user name.
-	fmt.Fprintf(c.out, "<iq type='set' id='bind_1'><bind xmlns='%s'/></iq>", NsBind)
+	fmt.Fprintf(c.out, "<iq type='set' id='bind_1'><bind xmlns='%s'><resource>%s</resource></bind></iq>", NsBind, xmlEscape("telnet"))
 	var iq ClientIQ
 	if err = c.in.DecodeElement(&iq, nil); err != nil {
 		return nil, errors.New("unmarshal <iq>: " + err.Error())
