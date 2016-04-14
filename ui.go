@@ -23,7 +23,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/agl/xmpp-client/xmpp"
+	"github.com/likoo/xmpp-client/xmpp"
 	"golang.org/x/crypto/otr"
 	"golang.org/x/crypto/ssh/terminal"
 	"golang.org/x/net/html"

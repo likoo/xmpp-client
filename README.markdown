@@ -1,7 +1,7 @@
 xmpp-client setup
 =================
 
-    go get github.com/agl/xmpp-client
+    go get github.com/likoo/xmpp-client
 
 (If you don't have Go already installed then see below.)
 
@@ -43,7 +43,7 @@ Build and run instructions for Ubuntu 13.10 (codename Saucy Salamander, go versi
 
     sudo apt-get install git golang mercurial
     export GOPATH=$HOME/go
-    go get github.com/agl/xmpp-client
+    go get github.com/likoo/xmpp-client
     $GOPATH/bin/xmpp-client
 
     ## If you want to set up an alias
@@ -65,5 +65,5 @@ Build and run instructions for Tails (tested on version 1.2, go version 1.2)
     ## Assuming you have created a persistant volume
     export GOPATH=/home/amnesia/Persistent/go/
 
-    go get github.com/agl/xmpp-client
+    go get github.com/likoo/xmpp-client
     $GOPATH/bin/xmpp-client
